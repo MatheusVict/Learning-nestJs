@@ -10,6 +10,18 @@ export class CoursersService {
       description: 'No youtube',
       tags: ['node.js', 'NestJs', 'Angular'],
     },
+    {
+      id: 2,
+      name: 'O dia todo',
+      description: 'No youtube',
+      tags: ['node.js', 'NestJs', 'Angular'],
+    },
+    {
+      id: 3,
+      name: 'Todos os dias Nest',
+      description: 'No youtube',
+      tags: ['node.js', 'NestJs', 'Angular'],
+    },
   ];
 
   findAll() {

@@ -8,37 +8,35 @@ import {
   Param,
   Patch,
   Post,
-  Res,
 } from '@nestjs/common';
-import { response } from 'express';
 import { CoursersService } from './coursers.service';
 
 @Controller('coursers')
 export class CoursersController {
   constructor(private readonly coursersService: CoursersService) {}
   @Get('list')
-  findAll(@Res() response): string {
-    return response.status(200).send('passou');
+  findAll() {
+    return this.coursersService.findAll();
   }
 
   @Get(':id')
-  findById(@Param('id') id: string): string {
-    return `Id: ${id}`;
+  findById(@Param('id') id: string) {
+    return this.coursersService.findOne(id);
   }
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create(@Body('name') name: string): string {
-    return name;
+  create(@Body('name') name: string) {
+    return this.coursersService.create(name);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() body) {
-    return `atualização do id:${id} e body ${body.name}`;
+    return this.coursersService.update(id, body);
   }
 
   @Delete(':id')
   deletar(@Param('id') id: string) {
-    return `Apagado pai o id: ${id}`;
+    return this.coursersService.remove(id);
   }
 }
