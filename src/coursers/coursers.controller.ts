@@ -11,9 +11,11 @@ import {
   Res,
 } from '@nestjs/common';
 import { response } from 'express';
+import { CoursersService } from './coursers.service';
 
 @Controller('coursers')
 export class CoursersController {
+  constructor(private readonly coursersService: CoursersService) {}
   @Get('list')
   findAll(@Res() response): string {
     return response.status(200).send('passou');
