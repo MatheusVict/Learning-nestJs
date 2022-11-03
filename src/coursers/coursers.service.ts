@@ -34,6 +34,8 @@ export class CoursersService {
     if (!courser) {
       throw new NotFoundException(`Não econtrdo o ID: ${id}`);
     }
+
+    return courser;
   }
 
   create(createCoursersDto: any) {
