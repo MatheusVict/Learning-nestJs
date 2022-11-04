@@ -40,6 +40,8 @@ export class CoursersService {
 
   create(createCoursersDto: any) {
     this.courses.push(createCoursersDto);
+
+    return createCoursersDto;
   }
 
   update(id: string, updateCoursersDto: any) {
@@ -48,6 +50,8 @@ export class CoursersService {
     );
 
     this.courses[indexCourser] = updateCoursersDto;
+
+    return updateCoursersDto;
   }
 
   remove(id: string) {
